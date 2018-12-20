@@ -8,12 +8,7 @@
   import appheader from './components/header.vue'
   export default {
     components:{
-      appheader : appheader,
-    },
-    data(){
-      return{
-        mountes : true
-      }
+      appheader : appheader
     }
   }
 </script>

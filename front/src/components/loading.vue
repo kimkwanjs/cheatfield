@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    잠시만기다려주세요
+    잠시만기다려주세요.
   </div>
 </template>
 
@@ -22,5 +22,6 @@ export default {
     text-align:center;
     color:#000;
     z-index:10000;
+    padding:50px 0 0 0;
   }
 </style>
