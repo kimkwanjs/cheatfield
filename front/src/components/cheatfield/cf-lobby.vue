@@ -1,20 +1,20 @@
 <template>
     <div id="gameLobby">
-      <div class="game_navi game_navi_1">
-        <div class="btn_left">
-          <p class="lobby_box" id="game_guide" @click="showLogin = !showLogin" v-if="propsdata">{{ propsdata }}</p>
-          <p class="lobby_box" id="game_guide" @click="showLogin = !showLogin" v-else>닉네임설정</p>
+      <div class="gameNavi gameNavi_1">
+        <div class="btnLeft">
+          <p class="lobbyBox" id="idSet" @click="showLogin = !showLogin" v-if="propsData">{{ propsData }}</p>
+          <p class="lobbyBox" id="idSet" @click="showLogin = !showLogin" v-else>닉네임설정</p>
         </div>
-        <div class="btn_right">
-          <p class="lobby_box" @click="showGuide = !showGuide">가이드</p>
+        <div class="btnRight">
+          <p class="lobbyBox" @click="showGuide = !showGuide">가이드</p>
         </div>
       </div>
-      <div class="game_navi game_navi_2">
-        <div class="btn_left">
-          <p class="lobby_box" id="game_start" @click="gameStart">게임시작</p>
+      <div class="gameNavi gameNavi_2">
+        <div class="btnLeft">
+          <p class="lobbyBox" id="gameStart" @click="gameStart">게임시작</p>
         </div>
-        <div class="btn_right">
-          <p class="lobby_box" id="ai_start" @click="aigameStart">A.I 대전</p>
+        <div class="btnRight">
+          <p class="lobbyBox" id="aiStart" @click="aigameStart">A.I 대전</p>
         </div>
       </div>
       <cfLogin v-if="showLogin"></cfLogin>
@@ -25,7 +25,7 @@
   import cfLogin from './cf-login.vue'
   import cfGuide from './cf-guide.vue'
   export default {
-    props:['propsdata'],
+    props:['propsData'],
     components:{
       cfLogin:cfLogin,
       cfGuide:cfGuide
@@ -34,15 +34,15 @@
       return {
         showLogin:false,
         showGuide:false,
-        mynick:''
+        myNick:''
       }
     },
     created(){
-      this.mynick = this.propsdata
+      this.myNick = this.propsData
     },
     methods:{
       gameStart(){
-        if(!this.mynick){
+        if(!this.myNick){
           this.showLogin = true ;
         }else{
           this.showLobby = false ;
@@ -50,7 +50,7 @@
         }
       },
       aigameStart(){
-        if(!this.mynick){
+        if(!this.myNick){
           this.showLogin = true ;
         }else{
           this.$emit('aigameStart')
@@ -61,16 +61,16 @@
 </script>
 <style>
  #gameLobby{position:relative; width:100%; padding-bottom:5%;}
- .game_navi{overflow:hidden;}
- .game_navi_1{position:relative; margin-top:11%; width:100%; overflow:hidden; text-align:center;}
- .game_navi_2{margin-bottom:8%;}
- .btn_left{
+ .gameNavi{overflow:hidden;}
+ .gameNavi_1{position:relative; margin-top:11%; width:100%; overflow:hidden; text-align:center;}
+ .gameNavi_2{margin-bottom:8%;}
+ .btnLeft{
    width:50%; padding:1%; float:left; box-sizing:border-box;
   }
- .btn_right{
+ .btnRight{
    width:50%; padding:1%; float:right; box-sizing:border-box;
  }
- .lobby_box
+ .lobbyBox
  {
    display: -webkit-flex; display: -ms-flexbox;	display: flex;
   -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
@@ -78,10 +78,10 @@
   width:120px; height:47px; border:2px outset #e5e5e5; background:#222;
   border-radius:10px; cursor:pointer; overflow:hidden;
 }
- #game_guide{
+ #idSet{
    float:right;
  }
- #game_start{
+ #gameStart{
    float:right;
 }
 </style>

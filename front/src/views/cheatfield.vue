@@ -2,19 +2,17 @@
   <div>
     <div class="gameWrap">
       <cfTitle></cfTitle>
-      <cfLobby v-on:gameSearch="gameSearch" v-on:aigameStart="aigameStart" v-bind:propsdata="mynick" v-if="lobbyView"></cfLobby>
-      <cfSearch v-on:gameStart="gameStart" v-on:searchCancle="searchCancle" v-bind:mynick="mynick" v-bind:enemy="enemynick" v-if="searchView"></cfSearch>
+      <cfLobby v-on:gameSearch="gameSearch" v-on:aigameStart="aigameStart" v-bind:propsData="myNick" v-if="lobbyView"></cfLobby>
+      <cfSearch v-on:gameStart="gameStart" v-on:searchCancle="searchCancle" v-bind:myNick="myNick" v-bind:enemy="enemyNick" v-if="searchView"></cfSearch>
       <div class="gameWindow" v-if="playgameView">
-        <cfPlaygame v-bind:mynick="mynick" v-bind:enemynick="enemynick"></cfPlaygame>
+        <cfPlaygame v-bind:myNick="myNick" v-bind:enemyNick="enemyNick"></cfPlaygame>
       </div>
       <div class="gameWindow" v-if="aiView">
-        <cfAi v-bind:propsdata="mynick"></cfAi>
+        <cfAi v-bind:myNick="myNick"></cfAi>
       </div>
     </div>
-    <div class="game_info">
-        - CHEAT FIELD(Instant) - <br />
-        <br />
-        1인개발 HTML 5 기반 웹게임(심리전카드게임)
+    <div class="gameInfo">
+        1인개발 HTML 5 기반 웹게임(실시간 심리전게임)
         <br />
         - 서버 : Node.js (Express , Socket.io)
         <br />
@@ -22,11 +20,11 @@
         <br /><br />
         포트폴리오 용 으로 제작한 인스턴트버전입니다.
         <br /><br />
-        게임모드 는 유저간 1:1 실시간 대전모드 와 A.I 대전모드 가 있으며 게임방법 은 가이드란을 참고 하시면 됩니다.
+        게임모드 는 유저간 1:1 실시간 대전모드 와 A.I 대전모드 가 있습니다.
         <br /><br />
-        게임의 흐름은 최초 닉네임설정 을 통해 유저 를 구별합니다, 유저가 게임시작 버튼을 눌러 대기인원이 있을시 게임이시작되고
-        대기실은 사라집니다, 대기인원이 없을시 대기실에서 상대방을 기다립니다. 게임이 끝난뒤 유저들은 방에서 나오게되고 게임데이터는 리셋됩니다.
-        웹페이지마다 유저등록이 가능해 여러 웹페이지를 통해 테스트 하기 쉽게 구현하였습니다.
+        유저간 통신은 socket.io 를 활용한 실시간 소켓 통신을 구현하였습니다. 유저를 구별할 수 있는 아이디는
+        세션스토리지에 담아 서버에서 서로에게 보내 구별하고 있습니다. 게임은 턴방식으로 진행되며 턴 마다 서로 카드를 하나씩 고른뒤
+        비교하여 승,패 를 결정합니다. 최종 상대방의 체력을 0 이하로 만들 시 게임은 종료됩니다.
     </div>
   </div>
 </template>
@@ -47,8 +45,8 @@
     },
     data(){
       return{
-        mynick:'',
-        enemynick:'',
+        myNick:'',
+        enemyNick:'',
         lobbyView:true,
         searchView:false,
         playgameView:false,
@@ -56,33 +54,33 @@
       }
     },
     sockets: {
-        ready_ok: function (enemynick) {
-          this.enemynick = enemynick
+        readyOk: function (enemyNick) {
+          this.enemyNick = enemyNick
           setTimeout(()=>{
             this.gameStart()
           },3000)
         }
     },
     created(){
-      eventBus.$on('nickname_set', (nick) => {
-        sessionStorage.setItem('mynick', nick)
+      eventBus.$on('nickNameSet', (nick) => {
+        sessionStorage.setItem('myNick', nick)
       })
-      eventBus.$on('aigame_over', () => {
+      eventBus.$on('aigameOver', () => {
         this.lobbyView=true;
         this.aiView=false;
       })
-      eventBus.$on('game_over', () => {
+      eventBus.$on('gameOver', () => {
         this.lobbyView=true;
         this.playgameView=false;
         location.reload();
       })
-      this.mynick = sessionStorage.getItem('mynick')
+      this.myNick = sessionStorage.getItem('myNick')
     },
     methods:{
       gameSearch(){
         this.searchView = true;
         this.lobbyView = false;
-        this.$socket.emit('gamerSearch', this.mynick)
+        this.$socket.emit('gameSearch', this.myNick)
       },
       aigameStart(){
         this.lobbyView = false;
@@ -95,7 +93,7 @@
       searchCancle(){
         this.searchView = false;
         this.lobbyView = true;
-        this.$socket.emit('game_search_cancle')
+        this.$socket.emit('gameSearchCancle')
       }
     },
     watch:{
@@ -117,7 +115,7 @@
     background:#111;
   }
 
-  .game_info{
+  .gameInfo{
     max-width:640px;
     min-width:320px;
     height:100%;

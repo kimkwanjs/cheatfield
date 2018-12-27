@@ -13,8 +13,8 @@ function RoomManager(io){
       RmMg.roomIndex[player1.name] = roomId;
 
       RmMg.rooms[roomId] = room;
-      io.to(player0.id).emit("ready_ok", player1.name );
-      io.to(player1.id).emit("ready_ok", player0.name);
+      io.to(player0.id).emit("readyOk", player1.name );
+      io.to(player1.id).emit("readyOk", player0.name);
       console.log(player1.name + ' vs ' + player0.name);
       console.log(roomId);
 

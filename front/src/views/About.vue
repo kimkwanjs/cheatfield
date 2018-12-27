@@ -1,6 +1,6 @@
 <template>
-  <div class="about_page">
-    <ul class="my_profile">
+  <div class="aboutPage">
+    <ul class="myProfile">
       <li>
           <h2>이 름</h2>
           <p>김 관 (Kim Kwan)</p>
@@ -9,27 +9,27 @@
           <h2>나 이</h2>
           <p>1990.09.22 (29)</p>
       </li>
-      <li class="slidetag">
-          <h2 @click="slideup">스 킬<span> {{ arrow }}</span></h2>
+      <li class="slideTag">
+          <h2 @click="slideUp">스 킬<span> {{ arrow }}</span></h2>
           <transition name="slide">
             <div v-if="skills">
-              <div class="my_skill">
-                  <div class="skill_mark">
+              <div class="mySkill">
+                  <div class="skillMark">
                     <i class="fab fa-html5"></i>
                   </div>
-                  <div class="skill_detail">
+                  <div class="skillDetail">
                     HTML <br />
-                    (Accessibility / UX) <br />
+                    (Accessibility / UI) <br />
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
               </div>
-              <div class="my_skill">
-                  <div class="skill_mark">
+              <div class="mySkill">
+                  <div class="skillMark">
                     <i class="fab fa-css3"></i>
                   </div>
-                  <div class="skill_detail">
+                  <div class="skillDetail">
                     CSS <br />
                     (responsive / animation) <br />
                     <i class="fas fa-star"></i>
@@ -37,57 +37,57 @@
                     <i class="fas fa-star"></i>
                   </div>
               </div>
-              <div class="my_skill">
-                  <div class="skill_mark">
+              <div class="mySkill">
+                  <div class="skillMark">
                     <i class="fab fa-js-square"></i>
                   </div>
-                  <div class="skill_detail">
+                  <div class="skillDetail">
                     JavaScript <br />
-                    (Vanilla JS / Jquery) <br />
+                    (Vanilla JS) <br />
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                   </div>
               </div>
-              <div class="my_skill">
-                  <div class="skill_mark">
+              <div class="mySkill">
+                  <div class="skillMark">
                     <i class="fab fa-vuejs"></i>
                   </div>
-                  <div class="skill_detail">
+                  <div class="skillDetail">
                     Vue.js <br />
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                   </div>
               </div>
-              <div class="my_skill">
-                  <div class="skill_mark">
+              <div class="mySkill">
+                  <div class="skillMark">
                     <i class="fab fa-node-js"></i>
                   </div>
-                  <div class="skill_detail">
+                  <div class="skillDetail">
                     Node.js <br />
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
                   </div>
               </div>
-              <div class="my_skill">
-                  <div class="skill_mark">
+              <div class="mySkill">
+                  <div class="skillMark">
                   </div>
-                  <div class="skill_detail">
+                  <div class="skillDetail">
                     경험해본것 <br />
-                    MySQL / MongoDB / CORDOVA
+                    React / MySQL / MongoDB
                   </div>
               </div>
             </div>
           </transition>
       </li>
-      <li class="slidetag">
-          <h2 @click="slideup2">커리어<span> {{ arrow2 }}</span></h2>
+      <!-- <li class="slideTag">
+          <h2 @click="slideUp2">커리어<span> {{ arrow2 }}</span></h2>
           <transition name="slide">
             <div v-if="skills2">
               <div class="career">
-                  <div class="career_tit">
+                  <div class="careerTit">
                     - 삼성물산 패션부문 SSF SHOP ( 협력업체 )
                   </div>
                   <div class="career_detail">
@@ -101,7 +101,7 @@
                   </div>
               </div>
               <div class="career">
-                  <div class="career_tit">
+                  <div class="careerTit">
                     - CHEAT FIELD ( 개인작업 )
                   </div>
                   <div class="career_detail">
@@ -112,20 +112,26 @@
                     서버 는 node.js(express) , 클라이언트 는 HTML 5,CSS 3,JS 로 구현하였고(vue.js로 업데이트)
                     DB 는 mysql 유저간 통신은 socket.io 로 구현하였습니다.
                     <br /><br />
+                    <a href="https://play.google.com/store/apps/details?id=com.cafe24app.cheatfield" target="_blank">Google 플레이스토어</a> ,
+                    <a href="https://itunes.apple.com/us/app/%EC%B9%98%ED%8A%B8%ED%95%84%EB%93%9C-cheatfield/id1417977776?l=ko&ls=1&mt=8" target="_blank">Apple 앱스토어</a>
+                    <br /><br />
                     배운점 : 기획부터 개발,디자인 까지 1인 개발로 진행 하면서, 규모가 커질수록 협업의 중요성을 강하게 깨달았다.
                     나 자신 과 프론트엔드 로써 한단계 성장하는 중요한 프로젝트 였다.
                   </div>
               </div>
             </div>
           </transition>
-      </li>
+      </li> -->
       <li>
           <h2>
             코딩에 임하는 자세
           </h2>
           <p>
-            modesty
+            Modesty
           </p>
+      </li>
+      <li>
+          kimkwanjs@gmail.com , P 010 9132 6621
       </li>
     </ul>
   </div>
@@ -142,7 +148,7 @@
       }
     },
     methods:{
-      slideup(){
+      slideUp(){
         if(this.skills){
           this.skills = false;
           this.arrow = '▲'
@@ -151,7 +157,7 @@
           this.arrow = '▼'
         }
       },
-      slideup2(){
+      slideUp2(){
         if(this.skills2){
           this.skills2 = false;
           this.arrow2 = '▲'
@@ -165,7 +171,7 @@
 </script>
 
 <style>
-.about_page{
+.aboutPage{
   max-width:640px;
   min-width:320px;
   margin:20px auto;
@@ -177,37 +183,37 @@
   font-size:18px;
   background:#f6f6f6;
 }
-.my_profile li{
+.myProfile li{
   width:100%;
   padding:2% 2% 0;
   overflow:hidden;
 }
-.my_profile li p{
+.myProfile li p{
   font-size:20px;
   line-height:2.4rem;
 }
 
-.my_profile li.slidetag>h2{
+.myProfile li.slideTag>h2{
   cursor:pointer;
 }
-.my_profile .my_skill{
+.myProfile .mySkill{
   display:inline-block;
   padding:2% 0;
   width:49%;
   height:120px;
 }
-.my_profile .skill_mark{
+.myProfile .skillMark{
   width:70px;
   font-size:68px;
   float:left;
 }
-.my_profile .skill_detail{
+.myProfile .skillDetail{
   float: left;
 }
 .career{
   padding:2% 0;
 }
-.career_tit{
+.careerTit{
   font-size:24px;
 }
 .career_detail{
@@ -248,7 +254,7 @@
    height: 0;
 }
 @media (max-width:600px){
-  .about_page{
+  .aboutPage{
     max-width:640px;
     min-width:320px;
     margin:0px auto;
@@ -261,7 +267,7 @@
     background:#f6f6f6;
   }
 
-  .my_profile .my_skill{
+  .myProfile .mySkill{
     display:block;
     min-width:280px;
     margin:0 auto;

@@ -1,31 +1,31 @@
 <template>
   <div id="gameSearching">
-    <div id="searching_box">
-      <div id="game_searching_text">게임찾는중...</div>
-      <div id="game_searching_vs">VS</div>
-      <div class="search_info_box">
-        <div id="searching_my_info">
-          <p class="my_nick" id="searching_my_nick">{{mynick}}</p>
+    <div id="searchingBox">
+      <div id="gameSearchingText">게임찾는중...</div>
+      <div id="gameSearchingVs">VS</div>
+      <div class="searchInfoBox">
+        <div id="searchingMyInfo">
+          <p class="myNick" id="searching_myNick">{{myNick}}</p>
         </div>
-        <div id="searching_enemy_info">
-          <p class="enemy_nick" id="searching_enemy_nick">{{enemynick}}</p>
+        <div id="searchingEnemyInfo">
+          <p class="enemyNick" id="searchingEnemyNick">{{enemyNick}}</p>
         </div>
       </div>
-      <div id="game_searching_cancle" @click="searchCancle">취소</div>
+      <div id="gameSearchingCancle" @click="searchCancle">취소</div>
     </div>
   </div>
 </template>
 <script>
   export default {
-    props:['mynick','enemy'],
+    props:['myNick','enemy'],
     data() {
       return {
-        enemynick:'???'
+        enemyNick:'???'
       }
     },
     watch:{
       enemy(){
-        this.enemynick = this.enemy
+        this.enemyNick = this.enemy
       }
     },
     methods:{
@@ -40,12 +40,12 @@
 		position:relative; width:100%; padding-bottom:60%;
 		box-sizing:border-box; -webkit-box-sizing:border-box;
 	}
-	#gameSearching #searching_box{
+	#gameSearching #searchingBox{
 		position:absolute; top:8%; left:50%; margin-left:-155px;
 		width:310px; height:70%;
 		text-align:center; border:2px outset #fff;
 	}
-	#gameSearching #searching_box #game_searching_text{
+	#gameSearching #searchingBox #gameSearchingText{
 		position:absolute;
 		top:0%;
 		width:200px; left:50%; margin-left:-100px;
@@ -77,7 +77,7 @@
 	@keyframes peach{
 		0% {top: 0%;}100%{top: 3%;}
 	}
-	#gameSearching #searching_box #game_searching_vs
+	#gameSearching #searchingBox #gameSearchingVs
 	{
 		position:absolute; left:50%; width:50px; height:100%; margin-left:-25px;
 		display: -webkit-box;
@@ -91,8 +91,8 @@
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
-	.search_info_box{position:relative; display: -webkit-box; display: -ms-flexbox; display: flex; width:100%; height:100%;}
-	#searching_my_info
+	.searchInfoBox{position:relative; display: -webkit-box; display: -ms-flexbox; display: flex; width:100%; height:100%;}
+	#searchingMyInfo
 	{
 		position:relative; width:50%; height:100%;
 		display: -webkit-flex;
@@ -106,7 +106,7 @@
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
-	#searching_enemy_info
+	#searchingEnemyInfo
 	{
 		position:relative; width:50%; height:100%;
 		display: -webkit-flex;
@@ -120,7 +120,7 @@
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
-	#gameSearching #searching_box #game_searching_cancle{
+	#gameSearching #searchingBox #gameSearchingCancle{
     position:relative; top:10%; font-size:15px; cursor:pointer;
   }
 </style>

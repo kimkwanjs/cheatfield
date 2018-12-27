@@ -1,5 +1,5 @@
 <template>
-    <div class="game_title">
+    <div class="gameTitle">
         CHEAT
         <br/>
         FIELD
@@ -12,7 +12,7 @@
   }
 </script>
 <style scoped>
-  .game_title{
+  .gameTitle{
     position:relative; width:100%;
     text-align:center;z-index:100;
     color: white;
@@ -54,15 +54,15 @@
   }
 
   @media (max-width:578px){
-    .game_title{font-size:96px;}
+    .gameTitle{font-size:96px;}
   }
 
   @media (max-width:485px){
-    .game_title{font-size:76px;}
+    .gameTitle{font-size:76px;}
   }
 
   @media (max-width:360px){
-    .game_title{
+    .gameTitle{
       font-size:56px;
     }
   }
