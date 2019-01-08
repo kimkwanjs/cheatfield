@@ -200,6 +200,7 @@
   }
   #inAigame .aiIngameUserInfo .hPoint .hp{
     background:crimson; width:100%; color:#fff; padding-left:10%;
+    transition:all .2s ease;
   }
   #inAigame .aiIngameUserInfo #aiInfo{
     position:absolute; right:2%; overflow:hidden; font-size:24px;
@@ -221,10 +222,15 @@
   }
 
   #inAigame .aiSelectBox{position:relative; width:320px; height:50px; margin:2% auto 10%; }
-  #inAigame .aiSelectBox ul{}
   #inAigame .aiSelectBox ul li{
     position: relative; float:left; width:64px; height:64px; cursor:pointer;
     margin-left:12px; background:#f1f1f1; border-radius:10px;
+  }
+  #inAigame .aiSelectBox ul li:hover{
+    transform: translateY(2px)
+  }
+  #inAigame .aiSelectBox ul li:active{
+    transform: translateY(2px)
   }
   #inAigame .aiSelectBox ul li img{width:64px; height:64px;}
   #inAigame .aiSelectBox ul .aigamePowOff{opacity:0.2; pointer-events: none; }

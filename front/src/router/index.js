@@ -8,11 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: () => import('../views/About.vue')
-    },
-    {
-      path: '/cheatfield',
-      component: () => import('../views/cheatfield.vue')
+      component: () => import('../components/cheatfield.vue')
     }
   ]
 })

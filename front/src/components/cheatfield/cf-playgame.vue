@@ -75,6 +75,7 @@
         },
         gamePlayDestroy: function(){
           alert('상대방나감 : 승리!!')
+          this.gameOver();
         }
     },
     methods:{
@@ -255,6 +256,7 @@
   }
   #inGame .ingame_userInfo .hPoint .hp{
     background:crimson; width:100%; color:#fff; padding-left:10%;
+    transition: all .2s ease-in;
   }
   #inGame .playingManager{
     position:relative; width:300px; height:150px; margin:0 auto; overflow:hidden; text-align:center;
@@ -282,10 +284,15 @@
   }
 
   #inGame .selectBox{position:relative; width:320px; height:50px; margin:2% auto 10%; }
-  #inGame .selectBox ul{}
   #inGame .selectBox ul li{
     position: relative; float:left; width:64px; height:64px; cursor:pointer;
     margin-left:12px; background:#f1f1f1; border-radius:10px;
+  }
+  #inGame .selectBox ul li:hover{
+    transform: translateY(2px)
+  }
+   #inGame .selectBox ul li:active{
+    transform: translateY(2px)
   }
   #inGame .selectBox ul li img{width:64px; height:64px;}
   #inGame .selectBox ul .gamePowOff{opacity:0.2; pointer-events: none; }

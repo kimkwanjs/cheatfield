@@ -1,17 +1,8 @@
 <template>
     <div id="app">
-      <appHeader></appHeader>
       <router-view/>
     </div>
 </template>
-<script>
-  import appHeader from './components/header.vue'
-  export default {
-    components:{
-      appHeader : appHeader,
-    },
-  }
-</script>
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Arvo:700|Do+Hyeon|Nanum+Gothic);
